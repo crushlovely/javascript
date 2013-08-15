@@ -1318,27 +1318,21 @@
     }
     ```
 
-  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-  - Use `find` with scoped jQuery object queries.
-
+  - For DOM queries, only target elements using the `$.js('selector')` syntax, targeting elements with the data attribute `data-js`.  Under no circumstances should you need to target elements using selector strings that contain tag names, classes or otherwise.
+  
     ```javascript
     // bad
-    $('.sidebar', 'ul').hide();
+    $('.container');
 
     // bad
-    $('.sidebar').find('ul').hide();
-
+    $('.container ul');
+    
     // good
-    $('.sidebar ul').hide();
-
+    // using the $.js() helper
+    $.js('container'); // targets <data-js="container"> or <data-js="container foo">
+    
     // good
-    $('.sidebar > ul').hide();
-
-    // good (slower)
-    $sidebar.find('ul');
-
-    // good (faster)
-    $($sidebar[0]).find('ul');
+    $('[data-js~=container]');
     ```
 
     **[[⬆]](#TOC)**
