@@ -4,10 +4,8 @@
 // global data-js query
 // $.js('foo');
 
-jQuery.js = function(jsSelector, scope) {
-    var scopeSelector = (scope && scope instanceof jQuery) ? scope.selector : 'html'
-
-    return jQuery(scopeSelector + ' .js-' + jsSelector);
+jQuery.js = function(jsSelector) {
+    return $('html').js(jsSelector);
 }
 
 // 
@@ -15,5 +13,5 @@ jQuery.js = function(jsSelector, scope) {
 // $.js('foo').js('bar');
 
 jQuery.fn.js = function(jsSelector) {
-    return $.js(jsSelector, this);
+    return this.find('.js-' + jsSelector);
 }
