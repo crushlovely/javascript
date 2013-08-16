@@ -7,7 +7,7 @@
 jQuery.js = function(jsSelector, scope) {
     var scopeSelector = (scope && scope instanceof jQuery) ? scope.selector : 'html'
 
-    return jQuery(scopeSelector + ' [data-js~="' + jsSelector + '"]');
+    return jQuery(scopeSelector + ' .js-' + jsSelector);
 }
 
 // 
