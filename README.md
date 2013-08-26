@@ -804,20 +804,21 @@
 
 ## <a name='commas'>Commas</a>
 
-  - Leading commas: **Nope.**
+  - Leading commas: **Yep.**
 
     ```javascript
-    // bad
+    
+    // good
     var once
       , upon
       , aTime;
 
-    // good
+    // bad
     var once,
         upon,
         aTime;
 
-    // bad
+    // good
     var hero = {
         firstName: 'Bob'
       , lastName: 'Parr'
@@ -825,7 +826,7 @@
       , superPower: 'strength'
     };
 
-    // good
+    // bad
     var hero = {
       firstName: 'Bob',
       lastName: 'Parr',
